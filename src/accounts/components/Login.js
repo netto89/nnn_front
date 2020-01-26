@@ -4,7 +4,6 @@ import { bindActionCreators, compose } from 'redux'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
 
-import { APP_TOKEN } from '../../constants'
 import { login } from '../routines'
 
 import { LoginForm } from './LoginForm'
@@ -16,7 +15,7 @@ const Login = ({
   location
 }) => {
   const locationPath = _.path('state.from.pathname')(location)
-  const token = localStorage.getItem(APP_TOKEN)
+  const token = localStorage.getItem(process.env.REACT_APP_TOKEN)
   if (token) return <Redirect to={locationPath || '/'} />
 
   return <LoginForm 

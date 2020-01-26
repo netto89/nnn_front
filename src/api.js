@@ -1,15 +1,16 @@
 import axios from 'axios'
-import { APP_TOKEN } from './constants'
 
 axios.interceptors.request.use(
   config => {
-    const token = localStorage.getItem(APP_TOKEN)
+    const token = localStorage.getItem(process.env.REACT_APP_TOKEN)
     if (token != null && !config.url.match(/sign_in/))
       config.headers.Authorization = `Bearer ${token}`
     return config
   },
   err => Promise.reject(err)
 )
+
+axios.defaults.baseURL = process.env.REACT_APP_API_HOST
 
 const JSON_OPTS = {
   headers: {

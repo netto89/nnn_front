@@ -3,12 +3,10 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { Route, Redirect, withRouter } from 'react-router-dom'
 
-import { APP_TOKEN } from './constants'
-
 import Home from './Home'
 
 export const PrivateRoutes = ({ currentUser, location }) => {
-  const token = localStorage.getItem(APP_TOKEN)
+  const token = localStorage.getItem(process.env.REACT_APP_TOKEN)
 
   if (!token)
     return <Redirect to={{ pathname: '/login', state: { from: location } }} />

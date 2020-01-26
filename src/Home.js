@@ -1,16 +1,11 @@
 import React from 'react'
+import LogoutButton from './LogoutButton'
 
 export const Home = () => (
-  <div
-    style={{
-      display: 'flex',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      height: '100vh'
-    }}
-  >
-    PRIVATE
-  </div>
+  <>
+    <h1>PRIVATE</h1>
+    <LogoutButton />
+  </>
 )
 
 export default Home

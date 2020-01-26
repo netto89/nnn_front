@@ -4,10 +4,8 @@ import { login } from '../routines'
 import { API_SIGN_IN } from '../api'
 import { call, put, takeLatest } from 'redux-saga/effects'
 
-import { APP_TOKEN } from '../../constants'
-
 export function saveToken(token) {
-  localStorage.setItem(APP_TOKEN, token)
+  localStorage.setItem(process.env.REACT_APP_TOKEN, token)
 }
 
 export function* loginSaga({ payload: { username, password } }) {

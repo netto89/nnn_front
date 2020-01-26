@@ -1,1 +1,0 @@
-export const APP_TOKEN = 'nnn_token'
